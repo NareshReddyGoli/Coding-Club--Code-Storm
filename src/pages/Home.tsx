@@ -10,11 +10,13 @@ import {
   ExternalLink,
 } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleRegisterClick = () => {
-    // This will be replaced with the Google Form URL
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSde0nSTIM-SsDr987H08xPXOzw8xbhvBwWxnoacKZWIWeY7xw/viewform", "_blank");
+    navigate("/register");
   };
 
   const eventFeatures = [
