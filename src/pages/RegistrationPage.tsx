@@ -106,7 +106,7 @@ const RegistrationPage = () => {
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">CSE Coding Club</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mt-4 bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-bold mt-4 pb-1 md:pb-2 leading-[1.15] bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
               Code Storm Registration
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-3">
@@ -122,7 +122,7 @@ const RegistrationPage = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                 />
                 <input
                   type="text"
@@ -130,7 +130,7 @@ const RegistrationPage = () => {
                   value={regNumber}
                   onChange={(e) => setRegNumber(e.target.value)}
                   required
-                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                 />
                 <input
                   type="text"
@@ -138,7 +138,7 @@ const RegistrationPage = () => {
                   value={year}
                   onChange={(e) => setYear(e.target.value)}
                   required
-                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                 />
                 <input
                   type="text"
@@ -146,7 +146,7 @@ const RegistrationPage = () => {
                   value={section}
                   onChange={(e) => setSection(e.target.value)}
                   required
-                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                 />
                 <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
                   Submit
