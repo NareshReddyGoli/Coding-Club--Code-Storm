@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import heroBackground from "@/assets/hero-bg.jpg";
 
 const RegistrationPage = () => {
   const [name, setName] = useState("");
@@ -40,78 +42,117 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 bg-background">
-      <section className="py-12">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 text-center">
-            <h1 className="text-4xl font-bold text-foreground">Student Registration</h1>
-            <p className="text-muted-foreground mt-2">
-              Register for Code Storm 2025
-            </p>
-          </div>
+    <div className="min-h-screen">
+      {/* Full-screen background same as Home */}
+      <section
+        className="relative min-h-screen pt-24 flex items-center justify-center hero-gradient code-pattern overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(34, 34, 44, 0.8), rgba(34, 34, 44, 0.6)), url(${heroBackground})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Floating code tokens */}
+        <div className="absolute inset-0 code-tokens">
+          {[
+            { t: "<", l: 4, d: 13, s: "xl", b: 6 },
+            { t: "div", l: 8, d: 14, s: "md", b: 12 },
+            { t: "/>", l: 12, d: 12, s: "lg", b: 18 },
+            { t: "#", l: 10, d: 16, s: "md", b: 26 },
+            { t: "()=>", l: 6, d: 18, s: "lg", b: 34 },
+            { t: "for", l: 14, d: 15, s: "md", b: 42 },
+            { t: "const", l: 18, d: 17, s: "lg", b: 50 },
+            { t: "{", l: 30, d: 14, s: "md", b: 2 },
+            { t: "}", l: 36, d: 15, s: "md", b: 6 },
+            { t: "#", l: 48, d: 12, s: "md", b: 9 },
+            { t: "=>", l: 58, d: 16, s: "lg", b: 12 },
+            { t: "for", l: 66, d: 14, s: "md", b: 16 },
+            { t: "const", l: 74, d: 18, s: "lg", b: 20 },
+            { t: "</>", l: 82, d: 12, s: "small", b: 22 },
+            { t: "()", l: 88, d: 15, s: "small", b: 24 },
+          ].map((k, i) => (
+            <span
+              key={i}
+              className={`code-token ${k.s} rotate`}
+              style={{ left: `${k.l}%`, bottom: `${k.b}%`, ['--dur' as any]: `${k.d}s` }}
+            >
+              {k.t}
+            </span>
+          ))}
+        </div>
+        {/* Animated Waves */}
+        <div className="absolute inset-x-0 bottom-0 hero-waves pointer-events-none">
+          <div className="wave wave1"></div>
+          <div className="wave wave2"></div>
+          <div className="wave wave3"></div>
+        </div>
+        {/* Rising Bubbles */}
+        <div className="absolute inset-0 bubbles pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className="bubble"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.4}s`,
+                animationDuration: `${6 + (i % 5)}s`,
+              }}
+            />
+          ))}
+        </div>
 
-          <div className="bg-card border border-border rounded-lg shadow-sm p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Name</label>
+        {/* Center content */}
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">CSE Coding Club</Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mt-4 bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
+              Code Storm Registration
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-3">
+              Register to participate in the competition. Team up, code fast, and have fun.
+            </p>
+
+            {/* Form wrapper at comfortable width */}
+            <div className="mt-10 max-w-xl mx-auto bg-card/70 backdrop-blur-sm border border-border/60 rounded-lg shadow-lg p-6">
+              <form onSubmit={handleSubmit} className="space-y-5 text-left">
                 <input
                   type="text"
-                  placeholder="Your full name"
+                  placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full p-2 rounded border bg-background text-foreground border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Register Number</label>
                 <input
                   type="text"
-                  placeholder="e.g., 241FA.."
+                  placeholder="Register Number"
                   value={regNumber}
                   onChange={(e) => setRegNumber(e.target.value)}
                   required
-                  className="w-full p-2 rounded border bg-background text-foreground border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
                 />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Year</label>
-                  <input
-                    type="text"
-                    placeholder="e.g., 2"
-                    value={year}
-                    onChange={(e) => setYear(e.target.value)}
-                    required
-                    className="w-full p-2 rounded border bg-background text-foreground border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Section</label>
-                  <input
-                    type="text"
-                    placeholder="e.g., A"
-                    value={section}
-                    onChange={(e) => setSection(e.target.value)}
-                    required
-                    className="w-full p-2 rounded border bg-background text-foreground border-border focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  />
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <Button
-                  type="submit"
-                  className="bg-gradient-to-r from-accent to-accent-glow text-accent-foreground font-semibold px-6"
-                >
-                  Submit Registration
+                <input
+                  type="text"
+                  placeholder="Year"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  required
+                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                />
+                <input
+                  type="text"
+                  placeholder="Section"
+                  value={section}
+                  onChange={(e) => setSection(e.target.value)}
+                  required
+                  className="w-full p-3 rounded-lg border border-border bg-transparent text-foreground placeholder:text-muted-foreground shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition"
+                />
+                <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                  Submit
                 </Button>
-              </div>
-            </form>
-
+              </form>
+            </div>
           </div>
         </div>
       </section>

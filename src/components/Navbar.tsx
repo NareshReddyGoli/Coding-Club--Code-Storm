@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Code, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
@@ -46,9 +47,15 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <Button variant="default" className="bg-gradient-to-r from-accent to-accent-glow hover:from-accent-glow hover:to-accent transition-smooth glow-effect">
-              Register Now
-            </Button>
+            {location.pathname !== '/register' && (
+              <Button
+                variant="default"
+                className="bg-gradient-to-r from-accent to-accent-glow hover:from-accent-glow hover:to-accent transition-smooth glow-effect"
+                onClick={() => navigate('/register')}
+              >
+                Register Now
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -81,9 +88,15 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="default" className="mt-2 bg-gradient-to-r from-accent to-accent-glow">
-                Register Now
-              </Button>
+              {location.pathname !== '/register' && (
+                <Button
+                  variant="default"
+                  className="mt-2 bg-gradient-to-r from-accent to-accent-glow"
+                  onClick={() => { setIsMenuOpen(false); navigate('/register'); }}
+                >
+                  Register Now
+                </Button>
+              )}
             </div>
           </div>
         )}
