@@ -115,39 +115,54 @@ const RegistrationPage = () => {
 
             {/* Form wrapper at comfortable width */}
             <div className="mt-10 max-w-xl mx-auto bg-card/70 backdrop-blur-sm border border-border/60 rounded-lg shadow-lg p-6">
-              <form onSubmit={handleSubmit} className="space-y-5 text-left">
-                <input
-                  type="text"
-                  placeholder="Enter Your Full Name "
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                />
-                <input
-                  type="text"
-                  placeholder="eg.,231FA04165"
-                  value={regNumber}
-                  onChange={(e) => setRegNumber(e.target.value)}
-                  required
-                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                />
-                <input
-                  type="text"
-                  placeholder="eg.,3"
-                  value={year}
-                  onChange={(e) => setYear(e.target.value)}
-                  required
-                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                />
-                <input
-                  type="text"
-                  placeholder="eg.,A"
-                  value={section}
-                  onChange={(e) => setSection(e.target.value)}
-                  required
-                  className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                />
+                <form onSubmit={handleSubmit} className="space-y-5 text-left">
+                  <div className="space-y-2">
+                    <label className="block text-base font-medium text-foreground">Name:</label>
+                    <input
+                      type="text"
+                      placeholder="Enter Your Full Name "
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="block text-base font-medium text-foreground">Register Number:</label>
+                    <input
+                      type="text"
+                      placeholder="eg.,231FA04165"
+                      value={regNumber}
+                      onChange={(e) => setRegNumber(e.target.value)}
+                      required
+                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="block text-base font-medium text-foreground">Year:</label>
+                    <input
+                      type="text"
+                      placeholder="eg.,3"
+                      value={year}
+                      onChange={(e) => setYear(e.target.value)}
+                      required
+                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="block text-base font-medium text-foreground">Section:</label>
+                    <input
+                      type="text"
+                      placeholder="eg.,A"
+                      value={section}
+                      onChange={(e) => setSection(e.target.value)}
+                      required
+                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
+                    />
+                  </div>
                 <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
                   Submit
                 </Button>
