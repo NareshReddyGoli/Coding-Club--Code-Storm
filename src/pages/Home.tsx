@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { User } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Calendar,
   MapPin,
@@ -21,7 +23,7 @@ const Home = () => {
 
   const eventFeatures = [
     {
-      icon: Users,
+      icon: User,
       title: "Problem-Solving Rounds",
       description: "Multiple timed rounds with increasing difficulty",
     },
@@ -73,7 +75,11 @@ const Home = () => {
             <span
               key={i}
               className={`code-token ${k.s} rotate`}
-              style={{ left: `${k.l}%`, bottom: `${k.b}%`, ['--dur' as any]: `${k.d}s` }}
+              style={{
+                left: `${k.l}%`,
+                bottom: `${k.b}%`,
+                ["--dur" as any]: `${k.d}s`,
+              }}
             >
               {k.t}
             </span>
@@ -130,7 +136,8 @@ const Home = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Competitive problem-solving contest with algorithmic challenges. Think fast, code smart, and climb the leaderboard.
+              Competitive problem-solving contest with algorithmic challenges.
+              Think fast, code smart, and climb the leaderboard.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
@@ -177,17 +184,16 @@ const Home = () => {
                   </p>
                 </CardContent>
               </Card>
-
               <Card className="bg-card/50 backdrop-blur-sm border-border/50 card-shadow">
                 <CardContent className="p-6 text-center">
-                  <Users className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <User className="h-8 w-8 text-primary mx-auto mb-3" />{" "}
+                  {/* Updated icon */}
                   <h3 className="font-semibold text-card-foreground mb-2">
-                    Teams
+                    Participation
                   </h3>
                   <p className="text-muted-foreground">
-                    2 Members
+                    Individual Participation
                     <br />
-                    per Team
                   </p>
                 </CardContent>
               </Card>
@@ -204,7 +210,8 @@ const Home = () => {
               About Code Storm
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A problem-solving focused event featuring DS&A and logical reasoning. Tackle puzzles, optimize solutions, and compete fairly.
+              A problem-solving focused event featuring DS&A and logical
+              reasoning. Tackle puzzles, optimize solutions, and compete fairly.
             </p>
           </div>
 
@@ -236,17 +243,19 @@ const Home = () => {
         <div className="absolute inset-0 code-pattern opacity-20"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-            Participate and build something meaningful
+            Participate and showcase your coding skills
           </h2>
           <p className="text-lg text-primary-foreground/80 mb-8">
-            Learn with peers, prototype ideas, and share your work.
+            Solve challenging problems, compete with the best, and climb the
+            leaderboard. Push your limits and prove your expertise in algorithms
+            and data structures.
           </p>
           <Button
             size="lg"
             onClick={handleRegisterClick}
             className="bg-accent hover:bg-accent-glow text-accent-foreground font-bold px-10 py-6 text-lg transition-bounce hover:scale-105 accent-glow"
           >
-            Register your team
+            Register here
             <ExternalLink className="ml-2 h-5 w-5" />
           </Button>
         </div>
@@ -292,12 +301,12 @@ const Home = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSde0nSTIM-SsDr987H08xPXOzw8xbhvBwWxnoacKZWIWeY7xw/viewform"
+                  <Link
+                    to="/register" // Updated to use the Registration page route
                     className="text-muted-foreground hover:text-primary transition-smooth"
                   >
                     Registration
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
