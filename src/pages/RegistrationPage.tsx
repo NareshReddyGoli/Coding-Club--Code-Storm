@@ -118,7 +118,7 @@ const RegistrationPage = () => {
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="Enter Your Full Name "
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -126,7 +126,7 @@ const RegistrationPage = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Register Number"
+                  placeholder="eg.,231FA04165"
                   value={regNumber}
                   onChange={(e) => setRegNumber(e.target.value)}
                   required
@@ -134,7 +134,7 @@ const RegistrationPage = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Year"
+                  placeholder="eg.,3"
                   value={year}
                   onChange={(e) => setYear(e.target.value)}
                   required
@@ -142,7 +142,7 @@ const RegistrationPage = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Section"
+                  placeholder="eg.,A"
                   value={section}
                   onChange={(e) => setSection(e.target.value)}
                   required
