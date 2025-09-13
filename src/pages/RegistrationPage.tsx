@@ -136,7 +136,6 @@ const RegistrationPage = () => {
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
                 </div>
-
                 <div className="space-y-2">
                   <label className="block text-base font-medium text-foreground">
                     Register Number:
@@ -150,7 +149,6 @@ const RegistrationPage = () => {
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
                 </div>
-
                 <div className="space-y-2">
                   <label className="block text-base font-medium text-foreground">
                     Year:
@@ -169,7 +167,6 @@ const RegistrationPage = () => {
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
                 </div>
-
                 <div className="space-y-2">
                   <label className="block text-base font-medium text-foreground">
                     Section:
@@ -188,13 +185,18 @@ const RegistrationPage = () => {
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
                 </div>
-
-                <Button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-                >
-                  Submit
-                </Button>
+                <div className="flex items-center space-x-4">
+                  <Button
+                    type="submit"
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+                  >
+                    Submit
+                  </Button>
+                  <span className="text-sm text-muted-foreground">
+                    <span className="text-red-500">*</span>Multiple
+                    registrations from the same Register Number not allowed.
+                  </span>
+                </div>
               </form>
             </div>
           </div>
