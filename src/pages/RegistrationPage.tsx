@@ -159,7 +159,12 @@ const RegistrationPage = () => {
                     type="text"
                     placeholder="eg.,3"
                     value={year}
-                    onChange={(e) => setYear(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (value === "" || value === "2" || value === "3") {
+                        setYear(value);
+                      }
+                    }}
                     required
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
@@ -173,11 +178,17 @@ const RegistrationPage = () => {
                     type="text"
                     placeholder="eg.,A"
                     value={section}
-                    onChange={(e) => setSection(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value.toUpperCase();
+                      if (value === "" || /^[A-Z]$/.test(value)) {
+                        setSection(value);
+                      }
+                    }}
                     required
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   />
                 </div>
+
                 <Button
                   type="submit"
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
