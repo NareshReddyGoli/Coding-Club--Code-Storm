@@ -192,9 +192,11 @@ const RegistrationPage = () => {
                   >
                     Submit
                   </Button>
+
                   <span className="text-sm text-muted-foreground">
-                    <span className="text-red-500">*</span>Multiple
-                    registrations from the same Register Number not allowed.
+                    <span className="text-red-500">*</span>
+                    Multiple registrations from the same Register Number not
+                    allowed.
                   </span>
                 </div>
               </form>
