@@ -7,46 +7,46 @@ const About = () => {
     {
       name: "############",
       role: "Faculty Coordinator",
-      department: "Professor, Computer Science Engineering",
+      department: "#######, Computer Science Engineering",
       image: "#",
       social: {
         linkedin: "#",
         github: "#",
-        email: "sarah.johnson@university.edu"
-      }
+        email: "",
+      },
     },
     {
       name: "############",
       role: "Student Lead Organizer",
-      department: "Final Year, Computer Science Engineering",
+      department: "######, Computer Science Engineering",
       image: "",
       social: {
         linkedin: "#",
         github: "#",
-        instagram: "#"
-      }
+        instagram: "#",
+      },
     },
     {
       name: "############",
       role: "Technical Coordinator",
-      department: "Third Year, Computer Science Engineering",
+      department: "####, Computer Science Engineering",
       image: "",
       social: {
         linkedin: "#",
         github: "#",
-        instagram: "#"
-      }
+        instagram: "#",
+      },
     },
     {
       name: "##############",
       role: "Events Manager",
-      department: "Third Year, Computer Science Engineering",
+      department: "######, Computer Science Engineering",
       image: "",
       social: {
         linkedin: "#",
         github: "#",
-        instagram: "#"
-      }
+        instagram: "#",
+      },
     },
     {
       name: "#########",
@@ -56,23 +56,31 @@ const About = () => {
       social: {
         linkedin: "#",
         github: "#",
-        instagram: "#"
-      }
+        instagram: "#",
+      },
     },
     {
       name: "##########################",
       role: "Logistics Coordinator",
-      department: "Second Year, Computer Science Engineering",
+      department: "#######, Computer Science Engineering",
       image: "",
       social: {
         linkedin: "#",
         github: "#",
-        instagram: "#"
-      }
-    }
+        instagram: "#",
+      },
+    },
   ];
 
-  const SocialButton = ({ icon: Icon, href, label }: { icon: any, href: string, label: string }) => (
+  const SocialButton = ({
+    icon: Icon,
+    href,
+    label,
+  }: {
+    icon: any;
+    href: string;
+    label: string;
+  }) => (
     <Button
       variant="ghost"
       size="sm"
@@ -91,11 +99,15 @@ const About = () => {
         <div className="absolute inset-0 code-grid opacity-20"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Meet Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Team</span>
+            Meet Our{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Team
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Dedicated professionals and passionate students working together to create an exceptional 
-            coding experience for all participants.
+            A passionate team of organizers and coordinators dedicated to
+            creating a challenging and engaging problem-solving event for all
+            participants.
           </p>
         </div>
       </section>
@@ -105,7 +117,10 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="group hover:scale-105 transition-bounce card-shadow hover:glow-effect overflow-hidden">
+              <Card
+                key={index}
+                className="group hover:scale-105 transition-bounce card-shadow hover:glow-effect overflow-hidden"
+              >
                 <CardContent className="p-0">
                   <div className="relative h-64 overflow-hidden">
                     <img
@@ -115,25 +130,49 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
-                  
+
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-card-foreground mb-1">{member.name}</h3>
-                    <p className="text-primary font-medium mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">{member.bio}</p>
-                    
+                    <h3 className="text-xl font-bold text-card-foreground mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-primary font-medium mb-2">
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {member.department}
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                      {member.bio}
+                    </p>
+
                     <div className="flex space-x-2">
                       {member.social.linkedin && (
-                        <SocialButton icon={Linkedin} href={member.social.linkedin} label="LinkedIn" />
+                        <SocialButton
+                          icon={Linkedin}
+                          href={member.social.linkedin}
+                          label="LinkedIn"
+                        />
                       )}
                       {member.social.github && (
-                        <SocialButton icon={Github} href={member.social.github} label="GitHub" />
+                        <SocialButton
+                          icon={Github}
+                          href={member.social.github}
+                          label="GitHub"
+                        />
                       )}
                       {member.social.instagram && (
-                        <SocialButton icon={Instagram} href={member.social.instagram} label="Instagram" />
+                        <SocialButton
+                          icon={Instagram}
+                          href={member.social.instagram}
+                          label="Instagram"
+                        />
                       )}
                       {member.social.email && (
-                        <SocialButton icon={Mail} href={`mailto:${member.social.email}`} label="Email" />
+                        <SocialButton
+                          icon={Mail}
+                          href={`mailto:${member.social.email}`}
+                          label="Email"
+                        />
                       )}
                     </div>
                   </div>
@@ -152,29 +191,33 @@ const About = () => {
           </h2>
           <div className="prose prose-invert max-w-none">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Our department is committed to excellence in computer science education and research. 
-              We foster innovation, creativity, and technical expertise in our students through 
-              hands-on learning experiences and industry partnerships.
+              Our department is committed to fostering excellence in
+              problem-solving and algorithmic thinking. We aim to provide
+              students with opportunities to challenge themselves and grow their
+              technical expertise.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              CodeStorm represents our dedication to providing platforms where students can 
-              showcase their skills, collaborate with peers, and push the boundaries of 
-              what's possible in technology.
+              CodeStorm is a testament to our dedication to creating a platform
+              where students can solve complex problems, compete with peers, and
+              showcase their skills in a collaborative and competitive
+              environment.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Students</div>
+              <div className="text-3xl font-bold text-primary mb-2">800+</div>
+              <div className="text-muted-foreground">
+                Expecting Participants
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Faculty Members</div>
+              <div className="text-3xl font-bold text-primary mb-2">20+</div>
+              <div className="text-muted-foreground">Co-Ordinators</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">10+</div>
-              <div className="text-muted-foreground">Research Labs</div>
+              <div className="text-3xl font-bold text-primary mb-2">100+</div>
+              <div className="text-muted-foreground">Problems Designed</div>
             </div>
           </div>
         </div>
