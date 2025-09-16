@@ -60,6 +60,7 @@ const Home = () => {
             { t: "/>", l: 12, d: 12, s: "lg", b: 18 },
             { t: "#", l: 10, d: 16, s: "md", b: 26 },
             { t: "()=>", l: 6, d: 18, s: "lg", b: 34 },
+            { t: "def", l: 66, d: 14, s: "md", b: 16 },
             { t: "for", l: 14, d: 15, s: "md", b: 42 },
             { t: "const", l: 18, d: 17, s: "lg", b: 50 },
             // Center/right scatter (lowered levels)
@@ -68,6 +69,7 @@ const Home = () => {
             { t: "#", l: 48, d: 12, s: "md", b: 9 },
             { t: "=>", l: 58, d: 16, s: "lg", b: 12 },
             { t: "for", l: 66, d: 14, s: "md", b: 16 },
+            { t: "while", l: 66, d: 14, s: "md", b: 16 },
             { t: "const", l: 74, d: 18, s: "lg", b: 20 },
             { t: "</>", l: 82, d: 12, s: "small", b: 22 },
             { t: "()", l: 88, d: 15, s: "small", b: 24 },
@@ -167,7 +169,7 @@ const Home = () => {
                   <h3 className="font-semibold text-card-foreground mb-2">
                     Date
                   </h3>
-                  <p className="text-muted-foreground">September 26-27, 2025</p>
+                  <p className="text-muted-foreground">September 25-26, 2025</p>
                 </CardContent>
               </Card>
 
@@ -178,7 +180,7 @@ const Home = () => {
                     Venue
                   </h3>
                   <p className="text-muted-foreground">
-                    CSE Department
+                    NTR Library
                     <br />
                     Library 2nd Floor
                   </p>
@@ -261,7 +263,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Professional Footer */}
       <footer className="bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -277,7 +278,7 @@ const Home = () => {
               <div className="flex space-x-4">
                 <Badge variant="outline" className="text-xs">
                   <Calendar className="h-3 w-3 mr-1" />
-                  September 26-27, 2025
+                  September 25-26, 2025
                 </Badge>
                 <Badge variant="outline" className="text-xs">
                   <MapPin className="h-3 w-3 mr-1" />
@@ -302,7 +303,7 @@ const Home = () => {
                 </li>
                 <li>
                   <Link
-                    to="/register" // Updated to use the Registration page route
+                    to="/register"
                     className="text-muted-foreground hover:text-primary transition-smooth"
                   >
                     Registration
@@ -341,6 +342,19 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Hit Counter */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              Site Hits:
+              <span
+                id="hit-counter"
+                className="inline-block ml-2 px-4 py-2 border border-primary rounded-lg bg-primary/10 text-primary font-semibold"
+              >
+                Loading...
+              </span>
+            </p>
+          </div>
+
           {/* Bottom Bar */}
           <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
@@ -363,6 +377,21 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* Hit Counter Script */}
+        <script>
+          {`
+      fetch('https://api.countapi.xyz/hit/cse-code-storm2025/hits')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('hit-counter').textContent = data.value;
+        })
+        .catch(err => {
+          console.error('Hit counter error:', err);
+          document.getElementById('hit-counter').textContent = 'N/A';
+        });
+    `}
+        </script>
       </footer>
     </div>
   );
