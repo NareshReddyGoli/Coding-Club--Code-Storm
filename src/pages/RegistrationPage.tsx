@@ -107,7 +107,7 @@ const RegistrationPage = () => {
         </div>
 
         {/* Center content */}
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full -mt-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">
               CSE Coding Club
