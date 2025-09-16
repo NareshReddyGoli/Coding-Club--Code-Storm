@@ -342,8 +342,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Hit Counter */}
-          {/* Hit Counter */}
+          {/* Hit Counter
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
               Site Hits:
@@ -369,7 +368,7 @@ const Home = () => {
                 </noscript>
               </span>
             </p>
-          </div>
+          </div> */}
 
           {/* Bottom Bar */}
           <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
