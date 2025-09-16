@@ -343,14 +343,30 @@ const Home = () => {
           </div>
 
           {/* Hit Counter */}
+          {/* Hit Counter */}
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
               Site Hits:
-              <span
-                id="hit-counter"
-                className="inline-block ml-2 px-4 py-2 border border-primary rounded-lg bg-primary/10 text-primary font-semibold"
-              >
-                Loading...
+              <span className="inline-block ml-2 px-4 py-2 border border-primary rounded-lg bg-primary/10 text-primary font-semibold">
+                <div id="sfc88j88xepcwqjjwrcxm8b9qu6xsfu6yur"></div>
+                <script
+                  type="text/javascript"
+                  src="https://counter5.optistats.ovh/private/counter.js?c=88j88xepcwqjjwrcxm8b9qu6xsfu6yur&down=async"
+                  async
+                ></script>
+                <noscript>
+                  <a
+                    href="https://www.freecounterstat.com"
+                    title="visitor counter"
+                  >
+                    <img
+                      src="https://counter5.optistats.ovh/private/freecounterstat.php?c=88j88xepcwqjjwrcxm8b9qu6xsfu6yur"
+                      border="0"
+                      title="visitor counter"
+                      alt="visitor counter"
+                    />
+                  </a>
+                </noscript>
               </span>
             </p>
           </div>
