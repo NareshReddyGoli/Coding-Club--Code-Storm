@@ -15,16 +15,16 @@ const RegistrationPage = () => {
     e.preventDefault();
 
     const googleFormURL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSfg6EWoRGm0hZA3ak6a0gzd8NxOa0FqaRUXUp7-8OM5cZ-BEQ/formResponse";
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSde0nSTIM-SsDr987H08xPXOzw8xbhvBwWxnoacKZWIWeY7xw/formResponse";
 
     // Use FormData and include Google Form meta fields for reliability
     const formData = new FormData();
-    formData.append("entry.1109872489", name);
-    formData.append("entry.22694101", regNumber);
-    formData.append("entry.2126890917", year);
-    formData.append("entry.1141254805", section);
-    formData.append("entry.1234567890", phoneNumber); // Add phone number field
-    formData.append("entry.9876543210", email); // Add email field
+    formData.append("entry.431079761", name);
+    formData.append("entry.1922815549", regNumber);
+    formData.append("entry.552006215", year);
+    formData.append("entry.1376272119", section);
+    formData.append("entry.324897508", phoneNumber); // Add phone number field
+    formData.append("entry.1512384195", email); // Add email field
     // These help newer Google Forms accept programmatic submissions
     formData.append("fvv", "1");
     formData.append("draftResponse", "[]");
