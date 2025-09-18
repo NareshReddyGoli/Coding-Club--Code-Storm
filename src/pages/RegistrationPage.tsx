@@ -39,7 +39,7 @@ const RegistrationPage = () => {
     });
 
     // Updated alert message
-    alert("Registration submitted successfully! <>Happy Coding");
+    alert("Registration submitted successfully! Happy Coding");
 
     // Reset form fields
     setName("");
@@ -119,7 +119,7 @@ const RegistrationPage = () => {
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">
-              CSE Coding Club
+              CSE Department Coding Club
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mt-4 pb-1 md:pb-2 leading-[1.15] bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
               Code Storm Registration
@@ -151,7 +151,7 @@ const RegistrationPage = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="eg.,231FA04165"
+                    placeholder="Enter Your Full Register Number"
                     value={regNumber}
                     onChange={(e) => setRegNumber(e.target.value)}
                     required
@@ -220,7 +220,7 @@ const RegistrationPage = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="Enter Your Email Address"
+                    placeholder="Enter Your HackerEarth Email ID"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required

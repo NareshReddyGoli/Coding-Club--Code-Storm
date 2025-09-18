@@ -25,17 +25,18 @@ const Home = () => {
     {
       icon: User,
       title: "Problem-Solving Rounds",
-      description: "Multiple timed rounds with increasing difficulty",
+      description: "Two timed rounds with increasing difficulty",
     },
     {
       icon: Trophy,
-      title: "Prizes & Awards",
-      description: "Exciting rewards for top problem solvers",
+      title: "Prizes & Awards(Year Wise)",
+      description:
+        "Cash Prizes for top problem solvers and certificates for all",
     },
     {
       icon: Clock,
       title: "Timed Challenges",
-      description: "Solve algorithmic problems against the clock",
+      description: "Based on Fastesr Submission and accuracy",
     },
   ];
 
@@ -111,7 +112,7 @@ const Home = () => {
           <div className="space-y-6">
             {/* Context badge (neutral) */}
             <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">
-              CSE Coding Club
+              CSE Department Coding Club
             </Badge>
 
             <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold relative mt-2 md:mt-4 leading-[0.9]">
@@ -194,7 +195,7 @@ const Home = () => {
                     Participation
                   </h3>
                   <p className="text-muted-foreground">
-                    Individual Participation
+                    II & III Year CSE Students
                     <br />
                   </p>
                 </CardContent>
@@ -212,8 +213,9 @@ const Home = () => {
               About Code Storm
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A problem-solving focused event featuring DS&A and logical
-              reasoning. Tackle puzzles, optimize solutions, and compete fairly.
+              A Competitive Contest event organized by the CSE Department to
+              faster problem-solving skills and algorithmic thinking among
+              students.
             </p>
           </div>
 
@@ -272,8 +274,7 @@ const Home = () => {
                 Code Storm 2025
               </h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Organized by the CSE Coding Club. A weekend of building and
-                collaboration.
+                Organized by the CSE Department Coding Club.
               </p>
               <div className="flex space-x-4">
                 <Badge variant="outline" className="text-xs">
