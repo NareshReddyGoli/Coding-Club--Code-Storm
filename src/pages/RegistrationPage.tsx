@@ -66,19 +66,24 @@ const RegistrationPage = () => {
         {/* Floating code tokens */}
         <div className="absolute inset-0 code-tokens">
           {[
+            // Left cluster
             { t: "<", l: 4, d: 13, s: "xl", b: 6 },
             { t: "div", l: 8, d: 14, s: "md", b: 12 },
             { t: "/>", l: 12, d: 12, s: "lg", b: 18 },
             { t: "#", l: 10, d: 16, s: "md", b: 26 },
             { t: "()=>", l: 6, d: 18, s: "lg", b: 34 },
+            { t: "def", l: 66, d: 14, s: "md", b: 16 },
             { t: "for", l: 14, d: 15, s: "md", b: 42 },
             { t: "const", l: 18, d: 17, s: "lg", b: 50 },
-            { t: "{", l: 30, d: 14, s: "md", b: 2 },
-            { t: "}", l: 36, d: 15, s: "md", b: 6 },
-            { t: "#", l: 48, d: 12, s: "md", b: 9 },
+            // Center/right scatter (lowered levels)
+            { t: "<", l: 56, d: 13, s: "xl", b: 6 },
+            { t: "div", l: 74, d: 14, s: "md", b: 12 },
+            { t: "/>", l: 52, d: 12, s: "lg", b: 18 },
+            { t: "#", l: 48, d: 12, s: "md", b: 20 },
             { t: "=>", l: 58, d: 16, s: "lg", b: 12 },
             { t: "for", l: 66, d: 14, s: "md", b: 16 },
-            { t: "const", l: 74, d: 18, s: "lg", b: 20 },
+            { t: "main", l: 72, d: 12, s: "md", b: 25 },
+            { t: "def", l: 74, d: 18, s: "lg", b: 30 },
             { t: "</>", l: 82, d: 12, s: "small", b: 22 },
             { t: "()", l: 88, d: 15, s: "small", b: 24 },
           ].map((k, i) => (
