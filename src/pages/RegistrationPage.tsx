@@ -39,7 +39,7 @@ const RegistrationPage = () => {
     });
 
     // Updated alert message
-    alert("Happy Coding<>Registration submitted successfully!");
+    alert("Registration submitted successfully! <>Happy Coding");
 
     // Reset form fields
     setName("");
@@ -53,6 +53,7 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen">
       {/* Full-screen background same as Home */}
+      {/* Full-screen background same as Home */}
       <section
         className="relative min-h-screen pt-24 flex items-center justify-center hero-gradient code-pattern overflow-hidden"
         style={{
@@ -62,6 +63,58 @@ const RegistrationPage = () => {
           backgroundAttachment: "fixed",
         }}
       >
+        {/* Floating code tokens */}
+        <div className="absolute inset-0 code-tokens">
+          {[
+            { t: "<", l: 4, d: 13, s: "xl", b: 6 },
+            { t: "div", l: 8, d: 14, s: "md", b: 12 },
+            { t: "/>", l: 12, d: 12, s: "lg", b: 18 },
+            { t: "#", l: 10, d: 16, s: "md", b: 26 },
+            { t: "()=>", l: 6, d: 18, s: "lg", b: 34 },
+            { t: "for", l: 14, d: 15, s: "md", b: 42 },
+            { t: "const", l: 18, d: 17, s: "lg", b: 50 },
+            { t: "{", l: 30, d: 14, s: "md", b: 2 },
+            { t: "}", l: 36, d: 15, s: "md", b: 6 },
+            { t: "#", l: 48, d: 12, s: "md", b: 9 },
+            { t: "=>", l: 58, d: 16, s: "lg", b: 12 },
+            { t: "for", l: 66, d: 14, s: "md", b: 16 },
+            { t: "const", l: 74, d: 18, s: "lg", b: 20 },
+            { t: "</>", l: 82, d: 12, s: "small", b: 22 },
+            { t: "()", l: 88, d: 15, s: "small", b: 24 },
+          ].map((k, i) => (
+            <span
+              key={i}
+              className={`code-token ${k.s} rotate`}
+              style={{
+                left: `${k.l}%`,
+                bottom: `${k.b}%`,
+                ["--dur" as any]: `${k.d}s`,
+              }}
+            >
+              {k.t}
+            </span>
+          ))}
+        </div>
+        {/* Animated Waves */}
+        <div className="absolute inset-x-0 bottom-0 hero-waves pointer-events-none">
+          <div className="wave wave1"></div>
+          <div className="wave wave2"></div>
+          <div className="wave wave3"></div>
+        </div>
+        {/* Rising Bubbles */}
+        <div className="absolute inset-0 bubbles pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className="bubble"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.4}s`,
+                animationDuration: `${6 + (i % 5)}s`,
+              }}
+            />
+          ))}
+        </div>
         {/* Center content */}
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -392,21 +392,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Hit Counter Script */}
-        <script>
-          {`
-      fetch('https://api.countapi.xyz/hit/cse-code-storm2025/hits')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('hit-counter').textContent = data.value;
-        })
-        .catch(err => {
-          console.error('Hit counter error:', err);
-          document.getElementById('hit-counter').textContent = 'N/A';
-        });
-    `}
-        </script>
       </footer>
     </div>
   );
