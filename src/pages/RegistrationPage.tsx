@@ -172,8 +172,8 @@ const RegistrationPage = () => {
                     className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
                   >
                     <option value="">Select Year</option>
-                    <option value="2">Year II</option>
-                    <option value="3">Year III</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
                   </select>
                 </div>
 
@@ -181,16 +181,16 @@ const RegistrationPage = () => {
                   <label className="block text-base font-medium text-foreground">
                     Section:
                   </label>
-
-                  {year === "2" || year === "3" ? (
-                    <select
-                      value={section}
-                      onChange={(e) => setSection(e.target.value)}
-                      required
-                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                    >
-                      <option value="">Select Section</option>
-                      {Array.from(
+                  <select
+                    value={section}
+                    onChange={(e) => setSection(e.target.value)}
+                    required
+                    disabled={!year} // disable dropdown until year is chosen
+                    className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <option value="">Select Section</option>
+                    {year &&
+                      Array.from(
                         { length: year === "2" ? 22 : 19 },
                         (_, i) => i + 1
                       ).map((num) => (
@@ -198,23 +198,9 @@ const RegistrationPage = () => {
                           {num}
                         </option>
                       ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      placeholder="eg., A"
-                      value={section}
-                      onChange={(e) => {
-                        const value = e.target.value.toUpperCase();
-                        if (value === "" || /^[A-Z]$/.test(value)) {
-                          setSection(value);
-                        }
-                      }}
-                      required
-                      className="w-full p-3 rounded-lg border border-border/70 bg-background/60 text-foreground placeholder:text-muted-foreground shadow-sm hover:bg-background/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 focus:bg-background/80 transition text-base leading-6"
-                    />
-                  )}
+                  </select>
                 </div>
+
                 <div className="space-y-2">
                   <label className="block text-base font-medium text-foreground">
                     Phone Number:
