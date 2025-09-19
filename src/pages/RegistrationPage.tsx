@@ -225,7 +225,7 @@ const RegistrationPage = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="Enter Your HackerEarth Email ID"
+                    placeholder="Enter Your HackerEarth Registered Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
