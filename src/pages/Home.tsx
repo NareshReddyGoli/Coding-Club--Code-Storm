@@ -53,13 +53,13 @@ const Home = () => {
     {
       icon: User,
       title: "Problem-Solving Rounds",
-      description: "Two timed rounds with increasing difficulty",
+      description: "Round1 && Round2 with increasing difficulty",
     },
     {
       icon: Trophy,
       title: "Prizes & Awards(Year Wise)",
       description:
-        "Cash Prizes for top problem solvers and certificates for all",
+        "Cash Prizes for top problem solvers and certificates for all round2 qualifiers",
     },
     {
       icon: Clock,
@@ -264,9 +264,9 @@ const Home = () => {
                     Venue
                   </h3>
                   <p className="text-muted-foreground">
-                    NTR Library
+                    N-block 3rd Floor,
                     <br />
-                    Library 2nd Floor
+                    CSE Department
                   </p>
                 </CardContent>
               </Card>
