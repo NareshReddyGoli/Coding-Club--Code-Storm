@@ -1,21 +1,49 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { User } from "lucide-react";
-import { Link } from "react-router-dom";
 import {
+  User,
   Calendar,
   MapPin,
-  Users,
   Trophy,
   Clock,
   ExternalLink,
 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import heroBackground from "@/assets/hero-bg.jpg";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  // Countdown Timer state
+  const [timeLeft, setTimeLeft] = useState("");
+
+  useEffect(() => {
+    const targetDate = new Date("2025-09-23T23:59:59").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        setTimeLeft("Closed");
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleRegisterClick = () => {
     navigate("/register");
@@ -36,7 +64,7 @@ const Home = () => {
     {
       icon: Clock,
       title: "Timed Challenges",
-      description: "Based on Fastesr Submission and accuracy",
+      description: "Based on Faster Submission and accuracy",
     },
   ];
 
@@ -52,10 +80,64 @@ const Home = () => {
           backgroundAttachment: "fixed",
         }}
       >
+        {/* Registration Ends In Box - Vertical with Vertical Title */}
+        <div className="absolute top-1/2 right-0 z-20 flex items-center transform -translate-y-1/2">
+          {/* Vertical title */}
+
+          {/* Countdown Card */}
+          <Card className="bg-card/90 backdrop-blur-md border border-primary/40 border-r-0 shadow-card hover:scale-105 transition-bounce w-24 rounded-l-xl overflow-hidden">
+            <CardContent className="px-2 py-1 text-center">
+              {/* Vertical Timer */}
+              <div className="flex flex-col divide-y divide-primary/30 text-center">
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <span className="text-[10px] text-red-500">Ends In</span>
+                </div>
+                {/* Days */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[0]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Days
+                  </span>
+                </div>
+                {/* Hours */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[1]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Hours
+                  </span>
+                </div>
+                {/* Minutes */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[2]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Mins
+                  </span>
+                </div>
+                {/* Seconds */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[3]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Secs
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+            {/* Glow border effect */}
+            <div className="absolute inset-y-0 right-0 w-1 bg-gradient-to-b from-primary via-primary-glow to-accent rounded-l"></div>
+          </Card>
+        </div>
+
         {/* Floating code tokens */}
         <div className="absolute inset-0 code-tokens">
           {[
-            // Left cluster
             { t: "<", l: 4, d: 13, s: "xl", b: 6 },
             { t: "div", l: 8, d: 14, s: "md", b: 12 },
             { t: "/>", l: 12, d: 12, s: "lg", b: 18 },
@@ -64,7 +146,6 @@ const Home = () => {
             { t: "def", l: 66, d: 14, s: "md", b: 16 },
             { t: "for", l: 14, d: 15, s: "md", b: 42 },
             { t: "const", l: 18, d: 17, s: "lg", b: 50 },
-            // Center/right scatter (lowered levels)
             { t: "{", l: 30, d: 14, s: "md", b: 2 },
             { t: "}", l: 36, d: 15, s: "md", b: 6 },
             { t: "#", l: 48, d: 12, s: "md", b: 9 },
@@ -88,12 +169,14 @@ const Home = () => {
             </span>
           ))}
         </div>
+
         {/* Animated Waves */}
         <div className="absolute inset-x-0 bottom-0 hero-waves pointer-events-none">
           <div className="wave wave1"></div>
           <div className="wave wave2"></div>
           <div className="wave wave3"></div>
         </div>
+
         {/* Rising Bubbles */}
         <div className="absolute inset-0 bubbles pointer-events-none">
           {[...Array(12)].map((_, i) => (
@@ -108,9 +191,9 @@ const Home = () => {
             />
           ))}
         </div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-6">
-            {/* Context badge (neutral) */}
             <Badge className="mx-auto bg-primary/15 text-primary border-primary/20">
               CSE Department Coding Club
             </Badge>
@@ -187,16 +270,15 @@ const Home = () => {
                   </p>
                 </CardContent>
               </Card>
+
               <Card className="bg-card/50 backdrop-blur-sm border-border/50 card-shadow">
                 <CardContent className="p-6 text-center">
-                  <User className="h-8 w-8 text-primary mx-auto mb-3" />{" "}
-                  {/* Updated icon */}
+                  <User className="h-8 w-8 text-primary mx-auto mb-3" />
                   <h3 className="font-semibold text-card-foreground mb-2">
                     Participation
                   </h3>
                   <p className="text-muted-foreground">
                     II & III Year CSE Students
-                    <br />
                   </p>
                 </CardContent>
               </Card>
@@ -214,7 +296,7 @@ const Home = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A Competitive Contest event organized by the CSE Department to
-              faster problem-solving skills and algorithmic thinking among
+              foster problem-solving skills and algorithmic thinking among
               students.
             </p>
           </div>
@@ -265,10 +347,10 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Event Info */}
             <div className="col-span-2">
               <h3 className="text-xl font-bold text-card-foreground mb-4">
                 Code Storm 2025
@@ -288,7 +370,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h4 className="font-semibold text-card-foreground mb-4">
                 Quick Links
@@ -329,7 +410,6 @@ const Home = () => {
               </ul>
             </div>
 
-            {/* Contact */}
             <div>
               <h4 className="font-semibold text-card-foreground mb-4">
                 Contact
@@ -343,35 +423,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Hit Counter
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              Site Hits:
-              <span className="inline-block ml-2 px-4 py-2 border border-primary rounded-lg bg-primary/10 text-primary font-semibold">
-                <div id="sfc88j88xepcwqjjwrcxm8b9qu6xsfu6yur"></div>
-                <script
-                  type="text/javascript"
-                  src="https://counter5.optistats.ovh/private/counter.js?c=88j88xepcwqjjwrcxm8b9qu6xsfu6yur&down=async"
-                  async
-                ></script>
-                <noscript>
-                  <a
-                    href="https://www.freecounterstat.com"
-                    title="visitor counter"
-                  >
-                    <img
-                      src="https://counter5.optistats.ovh/private/freecounterstat.php?c=88j88xepcwqjjwrcxm8b9qu6xsfu6yur"
-                      border="0"
-                      title="visitor counter"
-                      alt="visitor counter"
-                    />
-                  </a>
-                </noscript>
-              </span>
-            </p>
-          </div> */}
-
-          {/* Bottom Bar */}
           <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
               © 2025 Code Storm. All rights reserved. Organized by CSE Coding

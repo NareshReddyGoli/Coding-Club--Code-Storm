@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroBackground from "@/assets/hero-bg.jpg";
+import { Card, CardContent } from "@/components/ui/card";
 
 const RegistrationPage = () => {
   const [name, setName] = useState("");
@@ -50,6 +51,33 @@ const RegistrationPage = () => {
     setEmail(""); // Reset email field
   };
 
+  const [timeLeft, setTimeLeft] = useState("");
+
+  useEffect(() => {
+    const targetDate = new Date("2025-09-23T23:59:59").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        setTimeLeft("Closed");
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="min-h-screen">
       {/* Full-screen background same as Home */}
@@ -63,6 +91,61 @@ const RegistrationPage = () => {
           backgroundAttachment: "fixed",
         }}
       >
+        {/* Registration Ends In Box - Vertical with Vertical Title */}
+        <div className="absolute top-36 right-0 z-20 flex items-start">
+          {/* Vertical title */}
+
+          {/* Countdown Card */}
+          <Card className="bg-card/90 backdrop-blur-md border border-primary/40 border-r-0 shadow-card hover:scale-105 transition-bounce w-24 rounded-l-xl overflow-hidden">
+            <CardContent className="px-2 py-1 text-center">
+              {/* Vertical Timer */}
+              <div className="flex flex-col divide-y divide-primary/30 text-center">
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <span className="text-[10px] text-red-500">Ends In</span>
+                </div>
+                {/* Days */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[0]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Days
+                  </span>
+                </div>
+                {/* Hours */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[1]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Hours
+                  </span>
+                </div>
+                {/* Minutes */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[2]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Mins
+                  </span>
+                </div>
+                {/* Seconds */}
+                <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
+                  <p className="text-base font-bold text-card-foreground drop-shadow-lg animate-bounce-char">
+                    {timeLeft.split(" ")[3]}
+                  </p>
+                  <span className="text-[10px] text-muted-foreground">
+                    Secs
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+            {/* Glow border effect */}
+            <div className="absolute inset-y-0 right-0 w-1 bg-gradient-to-b from-primary via-primary-glow to-accent rounded-l"></div>
+          </Card>
+        </div>
+
         {/* Floating code tokens */}
         <div className="absolute inset-0 code-tokens">
           {[
