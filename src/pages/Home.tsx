@@ -20,7 +20,7 @@ const Home = () => {
   const [timeLeft, setTimeLeft] = useState("");
 
   useEffect(() => {
-    const targetDate = new Date("2025-09-23T23:59:59").getTime();
+    const targetDate = new Date("2025-09-25T10:00:00").getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -28,7 +28,7 @@ const Home = () => {
 
       if (distance <= 0) {
         clearInterval(timer);
-        setTimeLeft("Closed");
+        setTimeLeft("Event Started");
         return;
       }
 
@@ -90,7 +90,9 @@ const Home = () => {
               {/* Vertical Timer */}
               <div className="flex flex-col divide-y divide-primary/30 text-center">
                 <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
-                  <span className="text-[10px] text-red-500">Ends In</span>
+                  <span className="text-[10px] text-green-500">
+                    Code Starts In
+                  </span>
                 </div>
                 {/* Days */}
                 <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
@@ -264,7 +266,7 @@ const Home = () => {
                     Venue
                   </h3>
                   <p className="text-muted-foreground">
-                    N-block 3rd Floor,
+                    N-Block 3rd Floor,
                     <br />
                     CSE Department
                   </p>
