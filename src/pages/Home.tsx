@@ -298,7 +298,7 @@ const Home = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A Competitive Contest event organized by the CSE Department to
-              foster problem-solving skills and algorithmic thinking among
+              faster problem-solving skills and algorithmic thinking among
               students.
             </p>
           </div>

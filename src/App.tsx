@@ -56,7 +56,7 @@ const App = () => (
                       {/* Schedule */}
                       <div>
                         <h3 className="text-lg font-semibold text-accent mb-1">
-                          📅 Schedule
+                          Important Dates
                         </h3>
                         <ul className="space-y-1 text-card-foreground">
                           <li>
@@ -66,7 +66,7 @@ const App = () => (
                             III Years – <strong>26 Sep 2025</strong>
                           </li>
                           <li className="text-muted-foreground">
-                            Room numbers will be shared soon
+                            Room numbers will be share soon
                           </li>
                         </ul>
                       </div>
