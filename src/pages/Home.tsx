@@ -50,7 +50,7 @@ const Home = () => {
 
       if (distance <= 0) {
         clearInterval(timer);
-        setTimeLeft("Event Started");
+        setTimeLeft("");
         return;
       }
 
@@ -113,7 +113,7 @@ const Home = () => {
               <div className="flex flex-col divide-y divide-primary/30 text-center">
                 <div className="py-1 hover:bg-primary/10 transition-smooth rounded-l">
                   <span className="text-[10px] text-green-500">
-                    Code Starts In
+                    Event Completed
                   </span>
                 </div>
                 {/* Days */}
