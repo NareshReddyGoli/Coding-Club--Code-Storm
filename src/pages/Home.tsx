@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import winners1 from "@/assets/winners1.jpg";
+import winners2 from "@/assets/winners2.jpg";
+import coordination1 from "@/assets/coordination1.jpg";
+import coordination2 from "@/assets/coordination2.jpg";
+import coordination3 from "@/assets/coordination3.jpg";
+import coordination4 from "@/assets/coordination4.jpg";
 import {
   User,
   Calendar,
@@ -18,6 +24,22 @@ const Home = () => {
 
   // Countdown Timer state
   const [timeLeft, setTimeLeft] = useState("");
+  const memories = [
+    winners1,
+    winners2,
+    coordination1,
+    coordination2,
+    coordination3,
+    coordination4,
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % memories.length);
+    }, 4000); // 4 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const targetDate = new Date("2025-09-25T10:00:00").getTime();
@@ -72,9 +94,9 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative min-h-screen pt-24 flex items-center justify-center hero-gradient code-pattern overflow-hidden"
+        className="relative min-h-screen pt-24 flex items-center justify-center hero-gradient code-pattern overflow-hidden transition-all duration-1000"
         style={{
-          backgroundImage: `linear-gradient(rgba(34, 34, 44, 0.8), rgba(34, 34, 44, 0.6)), url(${heroBackground})`,
+          backgroundImage: `linear-gradient(rgba(34,34,44,0.8), rgba(34,34,44,0.6)), url(${memories[currentIndex]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -224,8 +246,9 @@ const Home = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Competitive problem-solving contest with algorithmic challenges.
-              Think fast, code smart, and climb the leaderboard.
+              A journey filled with teamwork, learning, and unforgettable
+              memories. Together we grew, collaborated, and celebrated every
+              moment of the event.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
@@ -296,10 +319,9 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               About Code Storm
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A Competitive Contest event organized by the CSE Department to
-              faster problem-solving skills and algorithmic thinking among
-              students.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Beyond the challenges, the event was about learning, sharing
+              ideas, and building skills that will stay with us forever.
             </p>
           </div>
 
